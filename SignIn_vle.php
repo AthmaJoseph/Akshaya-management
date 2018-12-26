@@ -8,7 +8,7 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<title>Yathra</title>
+<title>Akshaya</title>
 <link rel="icon" href="Tourism Template/images/site_icon.png">
 <meta charset="utf-8">
 <link rel="stylesheet"  href="Tourism Template/css/foundation.min.css">
@@ -157,13 +157,13 @@ $(document).ready(function () {
 if(isset($_POST['btn']))
 {
  include("connection.php");
- $q=mysql_query("select * from customer_tb where username='".$_POST['txtuname']."' and password='".$_POST['txtpswd']."'");
+ $q=mysql_query("select * from vle where centercode='".$_POST['txtuname']."' and password='".$_POST['txtpswd']."'");
  if($a=mysql_fetch_array($q))
  {
  $_SESSION['id']=$a[0];
-  $_SESSION['username']=$a['username'];
+  $_SESSION['centercode']=$a['centercode'];
  ?>
- <script type="text/javascript">window.location.href="Customer/home.php";</script>
+ <script type="text/javascript">window.location.href="vle/home.php";</script>
  <?php
   }
 else

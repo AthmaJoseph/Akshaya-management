@@ -10,7 +10,7 @@
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Yathra</title>
+<title>Akshaya</title>
 <link rel="icon" href="../Tourism Template/images/site_icon.png">
 <link rel="stylesheet" href="../Tourism Template/css/foundation.min.css">
 <link rel="stylesheet" href="../Tourism Template/css/superfish.css">
@@ -72,29 +72,29 @@ Modernizr.load({
   <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-7 content">
-        <h1 class="page-title">Yathra</h1>
+        <h3 class="page-title"><u>Akshaya - Gateway of Opportunities</u></h3>
         <div>
-          <h2 class="sub-title">Yathra is India’s leading platform to serve clients with exciting Tour Packages as per their interest with great deals.</h2>
+          <h2 align="justify" class="sub-title">Akshaya, an innovative project implemented in the State of Kerala aimed at bridging the digital divide, addresses the issues of ICT access, basic skill sets and availability of relevant content.</h2>
         </div>
-		<h6>Our Travel Agencies</h6>
+		<h6>AKSHAYA CENTERS</h6>
         <ul class="row">
 		<?php
 		include("../connection.php");
-		$q=mysql_query("select * from traveller_tb where status='Approve' limit 3");
+		$q=mysql_query("select * from vle where status='Approve' limit 3");
 		while($a=mysql_fetch_array($q))
 		{
 		?>
 		
           <li class="columns large-4 about-list">
             <div class="img-wrapper">
-              <p><img src="../Traveler/Photos/<?php echo $a['photo'];?>" alt="" class="th about-image" style="height:200px; width:170px"> 
+              <p><img src="../akshaya/Photos/<?php echo $a['photo'];?>" alt="" class="th about-image" style="height:200px; width:170px"> 
             </div>
             </p>
             <h3 class="employer-name"><?php echo $a['name'];?></h3>
-            <p><?php echo $a['company'];?> [ Company ]<br>
-			<?php echo $a['address'];?><br><?php echo $a['city'];?> ( <?php echo $a['zip'];?>)<br>
+            <p><?php echo $a['center_location'];?> <br>
+			<?php echo $a['panchayath'];?><br><?php echo $a['district'];?> ( <?php echo $a['phone'];?>)<br>
 			<img src="../Tourism Template/images/email.png"><?php echo $a['email'];?><br>
-			<img src="../Tourism Template/images/phone.png"><?php echo $a['mob'];?><br>
+			<img src="../Tourism Template/images/phone.png"><?php echo $a['mobile'];?><br>
 			</p>
           </li>
         <?php
@@ -106,11 +106,11 @@ Modernizr.load({
       <div class="columns sidebar large-4 large-offset-1">
         <h1 class="page-title"> Other Operations </h1>
         <ul >
-          <li> <a href="Customers_approved.php"  style="font-size:18px">Customers</a> </li>
-          <li> <a href="Bus_details.php" style="font-size:18px">Bus Details</a> </li>
-          <li> <a href="Passenger_details.php" style="font-size:18px">Passenger Details</a> </li>
+          <li> <a href="Customers_approved.php"  style="font-size:18px">View VLE details</a> </li>
+          <li> <a href="Bus_details.php" style="font-size:18px">Black List</a> </li>
+          <li> <a href="Passenger_details.php" style="font-size:18px">Message</a> </li>
           <li> <a href="Enquiry.php" style="font-size:18px">Online Enquires</a> </li>
-          <li> <a href="Packege_approved.php" style="font-size:18px">Feedback</a> </li>
+         
            <li><a href="../Logout.php" style="font-size:18px" >Logout</a></li>
         </ul>
       </div>

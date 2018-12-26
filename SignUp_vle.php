@@ -4,13 +4,14 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<title>Yathra</title>
+<title>Akshaya</title>
 <link rel="icon" href="Tourism Template/images/site_icon.png">
 <meta charset="utf-8">
 <link rel="stylesheet"  href="Tourism Template/css/foundation.min.css">
 <link rel="stylesheet"  href="Tourism Template/css/superfish.css">
 <link rel="stylesheet"  href="Tourism Template/css/stylesheet.css">
 <link rel="stylesheet" type="text/css" href="Sweet Alerts/sweetalert.css">
+<script src="reg2.js"></script>
 <script src="Sweet Alerts/sweetalert.min.js"></script>
 <script src="Tourism Template/js/vendor/custom.modernizr.js"></script>
 <script>
@@ -21,72 +22,7 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
-<script type="text/javascript">
- function getAge(dob)
- {
- if(window.XMLHttpRequest)
- {
-  http=new XMLHttpRequest();
-  }
-  else
-  {
-  http=new ActiveXobject("microsoft.XMLHTTP");
-  }
-  http.open("GET","GetAge.php?dob="+dob,true);
-  http.send();
-  http.onreadystatechange=function()
-  {
-  if(http.readyState==4&&http.status==200)
-  {
-   document.getElementById("txtage").value=http.responseText;
-  }
-  }
- }
-</script>
-<script type="text/javascript">
- function getDistrict(state)
- {
- if(window.XMLHttpRequest)
- {
-  http=new XMLHttpRequest();
-  }
-  else
-  {
-  http=new ActiveXobject("microsoft.XMLHTTP");
-  }
-  http.open("GET","GetDistrict.php?state="+state,true);
-  http.send();
-  http.onreadystatechange=function()
-  {
-  if(http.readyState==4&&http.status==200)
-  {
-   document.getElementById("txtdistrict").innerHTML=http.responseText;
-  }
-  }
- }
-</script>
-<script type="text/javascript">
- function getState(country)
- {
- if(window.XMLHttpRequest)
- {
-  http=new XMLHttpRequest();
-  }
-  else
-  {
-  http=new ActiveXobject("microsoft.XMLHTTP");
-  }
-  http.open("GET","GetState.php?c="+country,true);
-  http.send();
-  http.onreadystatechange=function()
-  {
-  if(http.readyState==4&&http.status==200)
-  {
-   document.getElementById("txtstate").innerHTML=http.responseText;
-  }
-  }
- }
-</script>
+
 
 
 <script type="text/javascript">
@@ -113,7 +49,7 @@ Modernizr.load({
   {
   if(http.readyState==4&&http.status==200)
   {
-  if(http.responseText=="This Username Already Exists")
+  if(http.responseText=="This center code Already Exists")
   {
    document.getElementById("txtu").innerHTML="<font color='red'>"+http.responseText+"</font>";
    document.getElementById("btn").disabled="true";
@@ -179,17 +115,66 @@ Modernizr.load({
       <div class="columns large-12 content ">
         <h1 class="page-title">VLE  Registration</h1>
         <div>
-          <h2 class="sub-title" style="font-family:Verdana">&nbsp;</h2>
+          <h2 class="sub-title" style="font-family:Verdana">Gateway of opportunities.......</h2>
         </div>
-        <div class="row contact-form">
-          <div class="columns large-8" style="font-family:Verdana">
-            <form id="contact-form" method="post" action="" enctype="multipart/form-data">
-			
-			
-			
-			
-			
-			
+        <div class="row contact-form"><div class="columns large-8" style="font-family:Verdana">
+		<form id="contact-form" id="contact-form" method="post" action="" enctype="multipart/form-data" >
+		<?php
+		include("connection.php");
+		?>
+        <table width="631" height="488">
+			<tr>
+			<td width="395">
+              <input type="text" name="txtname" id="txtname" placeholder="Name:" required ></td>
+			            
+			  </tr>
+			  <tr>  <td >
+			  <input type="text" name="txtcentercode" id="txtcentercode" placeholder="Center Code:" required onKeyUp="checkUsername(this.value)" ><div id="txtu"></div></td></tr>
+			  <tr>
+			  <td>
+              <input type="text" name="txtlocation" id="txtlocation" placeholder="Center Location:" required></td>
+			  </tr>
+			  <tr> <td><input type="text" name="txtlandmark" id="txtlandmark" placeholder="Landmark" required> </td></tr>
+               <tr>
+			  <td>
+              <input type="text" name="txtpanchayath" id="txtpanchayath" placeholder="Panchayath:" required  /></td>
+			  </tr>
+			  <tr>
+			  <td>
+              <input type="text" name="txtblock" id="txtblock" placeholder="Block" required >
+			  </td></tr>
+                
+			  <tr>
+			  <td>
+			  <input type="text" name="txtdistrict" id="txtdistrict" placeholder="District" required >
+			  </td>
+			  </tr>
+			  <tr><td> <input type="email" name="txtemail" id="txtemail" placeholder="Email:" required ></td></tr>
+				<tr>			  
+                <td>
+               <input type="text" name="txtphone" id="txtphone" placeholder="Phone Number:" required ></td>
+			  <td width="220"></td>
+			   </tr>
+			   <tr><td>
+            <input type="text" name="txtmb" id="txtmb" placeholder="Mobile Number:" required ></td></tr>
+              <tr>
+			  <td>
+               <input type="password" name="txtpswd" id="txtpswd" placeholder="Password:" required >
+			  <td>
+			  </td>
+			  </tr>
+			  			  <tr>
+			  			  <td>
+              <input type="file" name="txtfile"  required  onChange="prev(event)"> <div id="pre"></div></td>
+
+			  <tr>
+
+			  <tr>
+			  <td colspan="2">
+              <input type="submit" class="button" name="btn" id="btn" value="sign Up">
+			  </td>
+			  </tr>
+			  </table>
             </form>
           </div>
           <div class="columns large-4">
@@ -246,15 +231,19 @@ $(document).ready(function () {
 <?php
  if(isset($_POST['btn']))
  {
- mysql_query("insert into traveller_tb values(0,'".$_POST['txtname']."','".$_POST['txtcmp']."','".$_POST['txtaddr']."','".$_POST['txtcity']."','".$_POST['txtzip']."','".$_POST['txtcountry']."','".$_POST['txtphno']."','".$_POST['txtemail']."','".$_POST['txtuname']."','".$_POST['txtpswd']."','".$_FILES['txtfile']['name']."','pending')")or die(mysql_error());
+ 
+ mysql_query("insert into vle values(0,'".$_POST['txtname']."','".$_POST['txtcentercode']."','".$_POST['txtlocation']."','".$_POST['txtlandmark']."','".$_POST['txtpanchayath']."','".$_POST['txtblock']."','".$_POST['txtphone']."','".$_POST['txtemail']."','".$_POST['txtmb']."','".$_POST['txtdistrict']."','".$_POST['txtpswd']."','".$_FILES['txtfile']['name']."','pending')")or die(mysql_error());
  if(mysql_affected_rows($con)>0)
  {
-  move_uploaded_file($_FILES['txtfile']['tmp_name'],"Traveler/Photos/".$_FILES['txtfile']['name']);
+  move_uploaded_file($_FILES['txtfile']['tmp_name'],"akshaya/Photos/".$_FILES['txtfile']['name']);
   ?>
   <script type="text/javascript">
-  swal("Success!", "Your Account Created Successfully!", "success");
+   swal("Success!", "Your Account Created Successfully!", "success");
   </script>
-  <?php
+  
+    <?php
   }
+  
  }
-?>
+ 
+ ?>

@@ -86,8 +86,8 @@ Modernizr.load({
   <div class="row">
     <div class="columns large-12">
       <div class="center">
-        <h1>WELCOME TO GOD'S OWN COUNTRY</h1>
-        <p> You are now at the threshold of Kerala, God's Own Country. This gateway provides you with information, pictures and videos of mystical destinations spread out across the vast expanse of this beautiful state. A culture and heritage that has thrived since ancient times is available at your fingertips to explore and soak in.</p>
+        <h1>Akshaya - Gateway of Opportunities</h1>
+        <p> Akshaya has to surpass many challenges, everyone who respect its potential is keen to seek something innovative. Akshaya, an ambitious endeavor of the State of Kerala was inaugurated by Dr. APJ Abdul Kalam, on November 18, 2002. The Government’s focus on digitization of the State has entailed a revolution in the design and operation of public services through the reinvention of service delivery channels. Emergence of digital organizations to create services led to better opportunities to meet citizens’ needs directing to increased social inclusion.</p>
       </div>
     </div>
   </div>
@@ -95,22 +95,53 @@ Modernizr.load({
 <div class="service-box">
   <div class="row service">
     <div class="columns large-4">
-      <h1 class="service-subtitle">Parambikulam</h1>
-      <p><img src="Slider Images/Parambikkulam-Palakkad-6.jpg" style="width:400px; height:155px"  alt="" class="threeUp"></p>
-      <p> Parambikulam Tiger Reserve is situated in Chittur taluk of Palakkad district and is about 100 km away from Palakkad. The challenging hill ranges here are placed at an altitude of 300 to 1438 m above sea level and the place offers a good climate with temperatures ranging from 15 degree Celsius to 32 degree Celsius. Sprawling over an area of 285 sq km, Parambikulam can boast of the first scientifically managed teak plantations of the world and also houses the world's tallest and oldest teak tree.</p>
-      <p> <a class="button custom">details</a> </p>
+      <h1 class="service-subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MISSION</h1>
+      <p><img src="Slider Images/mission.jpg"  alt="" width="500" height="500" class="threeUp" style="width:400px; height:250px"></p>
+      <p align="justify"> To bridge the gap between the ‘Information Rich and the Information Poor’.
+
+ 
+
+Transformation of Governance to provide efficient, transparent and convenient services to the Citizens through Information & Communication Technologies.
+
+ 
+
+Improving public service delivery by making services accessible to 'the common man' in her/his locality.
+
+ 
+
+To improve e-literacy in underserved areas and to provide a platform for Government to citizen services through a public-private partnership.</p>
+      <p>&nbsp; </p>
     </div>
     <div class="columns large-4">
-      <h1 class="service-subtitle">Nelliyampathy hills</h1>
-      <p><img src="Slider Images/Nelliyampathy hills.jpg" alt="" class="threeUp"></p>
-      <p> From the town of Nenmara in Palakkad district, the cloud-caressed peaks of the majestic Nelliyampathy Hill ranges are a sight to behold. The height of the hills ranges from approximately 467 m to 1572 m and it has an extremely calming effect on all who view it. To reach Nelliyampathy, one has to take the road starting from Nenmara that proceeds to the Pothundy Dam. </p>
-      <p> <br><br><a class="button custom">details</a> </p>
+      <h1 class="service-subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISION</h1>
+      <p><img src="Slider%20Images/mission-2.jpg" alt="" width="400" height="213" class="threeUp" style="width:400px; height:250px" ></p>
+      <p align="justify">&nbsp; Achieving 100% digital and social inclusion by ‘Connecting the Unconnected’.
+ 
+To improve services at the base of the delivery chain.
+ 
+Building collaborative relationships with citizens and other communities.
+ 
+Restructuring the programs so as to leverage the assets of Government to enhance the mission productivity.
+ 
+Disseminating information to improvepublic communication and to encourage a shared understanding of public issues.
+ 
+To promote and strengthen entrepreneurship through digital interventions.</p>
+      <p> <br>
+      </p>
     </div>
     <div class="columns large-4">
-      <h1 class="service-subtitle">Bekal</h1>
-      <p><img src="Slider Images/bekal-fort-kerala-kasargode.jpg" alt="" style="width:400px; height:155px" class="threeUp"></p>
-      <p>In Kasargod district of Kerala, locates a place called Bekal with beauty engraved all over. The Bekal Fort enhanced with the Arabian Sea is definitely one of the most significant tourist attractions. In Kerala, Bekal Fort is the best preserved and the largest among its kind. This giant keyhole shape fort with the excellence of the sea surrounding it, greenery view from the top of the fort and the cool breeze sets an exotic feel. </p>
-      <p><br><br> <a class="button custom">details</a> </p>
+      <h1 class="service-subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OBJECTIVE</h1>
+      <p><img src="Slider%20Images/mission-3.jpg" alt="" width="700" height="600" class="threeUp" style="width:400px; height:250px"></p>
+      <p align="justify">To harness ICT in order to build and better services finally transforming the relationship between government and state.
+ 
+ 
+To understand current and future demand for digital skills in the economy; to understand the routes to bridge the gap by identifying the risks and opportunities in addressing digital skills.
+ 
+ 
+ 
+To ensure that the government achieves its delivery priorities, across the key areas of public service.&nbsp;</p>
+      <p align="justify"><br><br> 
+        </p>
     </div>
   </div>
 </div>
@@ -121,13 +152,13 @@ Modernizr.load({
         <ul class="slides">
           <li>
             <div class="row">
-              <div class="columns large-3"> <img src="Slider Images/cherai_beach_kochi.jpg" alt="" class="test-img"> </div>
+              <div class="columns large-3"> <img src="Slider Images/9.jpg" alt="" class="test-img"> </div>
               <div class="columns large-9">
-                <h1>KeralaTourism is Live & Trending</h1>
-                <p> Cherai Beach, a picturesque beach, located on the north-end of the Vypeen Island is ideal for swimming.Thick coconut groves and Chinese fishing nets on the waterfront are added attractions.</p>
+                <h1>AKSHAYA Gateway to Opportunities</h1>
+                <p> Akshaya, an innovative project implemented in the State of Kerala aimed at bridging the digital divide, addresses the issues of ICT access, basic skill sets and availability of relevant content.</p>
                 <div class="row">
                   <div class="columns large-12">
-                    <p class="test-credit"><span class="name">Cherai Beach,</span><span class="profession"> Kochi</span></p>
+                    <p class="test-credit"><span class="name"></span><span class="profession"> </span></p>
                   </div>
                 </div>
               </div>
@@ -135,13 +166,13 @@ Modernizr.load({
           </li>
           <li>
             <div class="row">
-              <div class="columns large-3"> <img src="Slider Images/athirappalli_and_vazhachal_waterfalls_thrissur.jpg" alt="" class="test-img"> </div>
+              <div class="columns large-3"> <img src="Slider Images/10.png" alt="" class="test-img"> </div>
               <div class="columns large-9">
-                <h1>KeralaTourism is Live & Trending</h1>
-                <p> The most famous waterfalls of Kerala, Athirappalli and Vazhachal are situated on the Chalakudy River, which originates from the upper reaches of the Western Ghats. </p>
+                <h1>AKSHAYA Gateway to Opportunities</h1>
+                <p> An innovative project implemented in the State of Kerala aimed at bridging the digital divide, addresses the issues of ICT access, basic skill sets and availability of relevant. </p>
                 <div class="row">
                   <div class="columns large-12">
-                    <p class="test-credit"><span class="name">Athirappalli & Vazhachal Waterfalls</span><span class="profession"> Thrissur</span></p>
+                    <p class="test-credit"><span class="name"></span><span class="profession"> </span></p>
                   </div>
                 </div>
               </div>
@@ -149,13 +180,13 @@ Modernizr.load({
           </li>
           <li>
             <div class="row">
-              <div class="columns large-3"> <img src="Slider Images/ambalavayal_heritage_museum_wayanad.jpg" alt="" class="test-img"> </div>
+              <div class="columns large-3"> <img src="Slider Images/11.jpg" alt="" class="test-img"> </div>
               <div class="columns large-9">
-                <h1>KeralaTourism is Live & Trending</h1>
-                <p> The Ambalavayal Heritage Museum, the archaeological museum in Wayanad, has one of Kerala's largest collections of the remnants of an era dating back to the 2nd century A.D. </p>
+                <h1>AKSHAYA Gateway to Opportunities</h1>
+                <p> Akshaya, an innovative project implemented in the State of Kerala aimed at bridging the digital divide, addresses the issues of ICT access, basic skill sets and availability of relevant content.</p>
                 <div class="row">
                   <div class="columns large-12">
-                    <p class="test-credit"><span class="name">Ambalavayal Heritage Museum</span><span class="profession"> Wayanad</span></p>
+                    <p class="test-credit"><span class="name"></span><span class="profession"> </span></p>
                   </div>
                 </div>
               </div>
@@ -170,7 +201,6 @@ Modernizr.load({
 
 <div class="credit-row">
   <div class="row">
-    <div class="columns large-11 credit"> &copy; 2045 All rights reserved by <a href="#">Calisto.</a> Design by: <a href="http://topwebsitetemplates.org">topwebsitetemplates.org</a></div>
     <div class="columns large-1"> <img src="Tourism Template/images/toparrow.png" alt="" class="scrollToTop"> </div>
   </div>
 </div>

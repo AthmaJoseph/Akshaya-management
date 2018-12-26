@@ -8,7 +8,7 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<title>Yathra</title>
+<title>akshaya</title>
 <link rel="icon" href="Tourism Template/images/site_icon.png">
 <meta charset="utf-8">
 <link rel="stylesheet"  href="Tourism Template/css/foundation.min.css">
