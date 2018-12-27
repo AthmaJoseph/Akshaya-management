@@ -1,6 +1,7 @@
 <?php
-  session_start();
-
+session_start();
+if(isset($_SESSION['id']))
+{
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
@@ -8,42 +9,49 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<title>Akshaya</title>
-<link rel="icon" href="Tourism Template/images/site_icon.png">
+<title>Yathra</title>
+<link rel="icon" href="../Tourism Template/images/site_icon.png">
 <meta charset="utf-8">
-<link rel="stylesheet"  href="Tourism Template/css/foundation.min.css">
-<link rel="stylesheet"  href="Tourism Template/css/superfish.css">
-<link rel="stylesheet"  href="Tourism Template/css/stylesheet.css">
-<link rel="stylesheet" type="text/css" href="Sweet Alerts/sweetalert.css">
-<script src="Sweet Alerts/sweetalert.min.js"></script>
-<script src="Tourism Template/js/vendor/custom.modernizr.js"></script>
+<link rel="stylesheet" href="../Tourism Template/css/foundation.min.css">
+<link rel="stylesheet" href="../Tourism Template/css/superfish.css">
+<link rel="stylesheet" href="../Tourism Template/css/stylesheet.css">
+<link rel="stylesheet" href="../Tourism Template/js/colorbox/colorbox.css">
+<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
+<script src="../Tourism Template/js/vendor/custom.modernizr.js"></script>
+<link href="../Tourism Template/css/package_view.css" rel="stylesheet" type="text/css">
+<link href="../Tourism Template/css/gallery.css" rel="stylesheet" type="text/css" />
+<link href="../Tourism Template/css/search_box.css" rel="stylesheet" type="text/css" />
+<script src="../Sweet Alerts/sweetalert.min.js"></script>
+<link href="../Sweet Alerts/sweetalert.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+function expand()
+{
+document.getElementById("search").style.width="200px";
+}
+</script>
 <script>
 Modernizr.load({
     // test if browser understands media queries
     test: Modernizr.mq('only all'),
     // if not load ie8-grid
-    nope: 'css/ie8-grid-foundation-4.css'
+    nope: '../Tourism Template/css/ie8-grid-foundation-4.css'
 });
 </script>
-<!--[if lt IE 9]>
-<link rel="stylesheet"  href="Tourism Template/css/ie-fixes.css">
-<![endif]-->
-<style>
- .head_a
- {
- font-family:Verdana;
- }
-</style>
 
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="../Tourism Template/css/ie-fixes.css">
+<![endif]-->
 </head>
 <body>
 <div class="header">
   <div class="row">
     <div class="columns large-12">
       <div class="row header-inner">
-    <?php
-	include"menu_header.php";
-	?>
+        <?php
+		 include("menu_header.php");
+		?>
 
       </div>
     </div>
@@ -74,34 +82,20 @@ Modernizr.load({
 <div class="row content-wrapper">
   <div class="columns large-12">
     <div class="row wrapper">
-      <div class="columns large-12 content ">
-        <h1 class="page-title">Sign In - STAFF </h1>
-        <div>
-          <h2>Gateway of opportunities....... </h2>
-        </div>
-        <div class="row contact-form">
-          <div class="columns large-8" style="font-family:Verdana">
-            <form id="contact-form" method="post" action="">
-			<table style="width:500px;">
-			<tr>
-			<td>
-              <input type="text" name="txtuname" placeholder="Username:">
-			  </td>
-			  </tr>
-			  <tr>
-			  <td>
-              <input type="password" name="txtpswd" placeholder="Password:">
-			  </td>
-			  </tr>
-			  <tr>
-			  <td>
-              <input type="submit" class="button" name="btn" value="sign in">
-			  </td>
-			  </tr>
-			  </table>
-            </form>
-          </div>
-          <div class="columns large-4">
+      <div class="columns large-7 content">
+        <h1 class="page-title" style="background-color:#C2C2854" >Your Feedback</h1>
+		  <form method="post">
+		<textarea name="txtf" placeholder="Write Feedback Here"></textarea>
+		<input type="submit" class="button" value="Send" name="btn">
+		</form>
+	
+
+		              
+		  </div>   
+		  <div class="columns sidebar large-4 large-offset-1"><br />
+          
+               
+		   <div class="columns large-4">
             <div id="map_canvas"></div>
             
           </div>
@@ -110,6 +104,7 @@ Modernizr.load({
       <div class="row collapse">
         <div class="columns large-12"> </div>
       </div>
+	  
     </div>
   </div>
 </div>
@@ -120,10 +115,10 @@ Modernizr.load({
     <div class="columns large-1"> <img src="Tourism Template/images/toparrow.png" alt="" class="scrollToTop"> </div>
   </div>
 </div>
-<script src="Tourism Template/js/jquery.min.js"></script>
-<script src="Tourism Template/js/hoverIntent.js"></script>
-<script src="Tourism Template/js/superfish.js"></script>
-<script src="Tourism Template/Tourism Template/js/google-maps.js"></script>
+<script src="../Tourism Template/js/jquery.min.js"></script>
+<script src="../Tourism Template/js/hoverIntent.js"></script>
+<script src="../Tourism Template/js/superfish.js"></script>
+<script src="../Tourism Template/Tourism Template/js/google-maps.js"></script>
 <script>
 Modernizr.load({
     test: Modernizr.placeholder,
@@ -150,34 +145,62 @@ $(document).ready(function () {
     });
 });
 </script>
-</body>
-</html>
 
+</body>
+	<?php
+		if(isset($_POST['btn']))
+		{
+		mysql_query("insert into customer_feedback values(0,'".$_SESSION['id']."','".$_POST['txtf']."','".$_GET['name']."','".date("Y-m-d")."')");
+		?>
+		<script type="text/javascript">
+		swal({
+  title: " ",
+  text: "Thank U for your comments"
+});
+		</script>
+		<?php
+		}
+		?>
+</html>
 <?php
-if(isset($_POST['btn']))
-{
- include("connection.php");
- $q=mysql_query("select * from staff_reg where email='".$_POST['txtuname']."' and password='".$_POST['txtpswd']."'");
- if($a=mysql_fetch_array($q))
- {
- $_SESSION['id']=$a[0];
-  $_SESSION['centercode']=$a['centercode'];
- ?>
- <script type="text/javascript">window.location.href="staff/home.php";</script>
- <?php
-  }
+}
 else
-	  {
-	  ?>
-	  <script type="text/javascript">
-	  sweetAlert({
-				  title: "Error!",
-				  text: "Invalid Username or Password!",
-				  type: "error",
-				  confirmButtonText: "Ok"
-				});
-</script>
-	  <?php
-	  }
- }
+{
 ?>
+<script type="text/javascript">
+window.location.href='../index.php';
+</script>
+<?php
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

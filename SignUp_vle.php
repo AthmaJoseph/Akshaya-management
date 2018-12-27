@@ -232,7 +232,7 @@ $(document).ready(function () {
  if(isset($_POST['btn']))
  {
  
- mysql_query("insert into vle values(0,'".$_POST['txtname']."','".$_POST['txtcentercode']."','".$_POST['txtlocation']."','".$_POST['txtlandmark']."','".$_POST['txtpanchayath']."','".$_POST['txtblock']."','".$_POST['txtphone']."','".$_POST['txtemail']."','".$_POST['txtmb']."','".$_POST['txtdistrict']."','".$_POST['txtpswd']."','".$_FILES['txtfile']['name']."','pending')")or die(mysql_error());
+ mysql_query("insert into vle values(0,'".$_POST['txtname']."','".$_POST['txtcentercode']."','".$_POST['txtlocation']."','".$_POST['txtlandmark']."','".$_POST['txtpanchayath']."','".$_POST['txtblock']."','".$_POST['txtdistrict']."','".$_POST['txtemail']."','".$_POST['txtphone']."','".$_POST['txtmb']."','".$_POST['txtpswd']."','".$_FILES['txtfile']['name']."','pending')")or die(mysql_error());
  if(mysql_affected_rows($con)>0)
  {
   move_uploaded_file($_FILES['txtfile']['tmp_name'],"akshaya/Photos/".$_FILES['txtfile']['name']);

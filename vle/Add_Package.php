@@ -1,6 +1,6 @@
 <?php
  session_start();
- if(isset($_SESSION['username']))
+ if(isset($_SESSION['id']))
  {
  ?>
 <!DOCTYPE html>
@@ -9,17 +9,18 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<meta charset="utf-8">
-<title>Akshaya</title>
+<title>Yathra</title>
 <link rel="icon" href="../Tourism Template/images/site_icon.png">
+<meta charset="utf-8">
 <link rel="stylesheet" href="../Tourism Template/css/foundation.min.css">
 <link rel="stylesheet" href="../Tourism Template/css/superfish.css">
 <link rel="stylesheet" href="../Tourism Template/css/stylesheet.css">
-<link rel="stylesheet" href="../Tourism Template/js/colorbox/colorbox.css">
 <link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
-<link  href="../Tourism Template/css/comment.css" rel="stylesheet" type="text/css">
 <script src="../Tourism Template/js/vendor/custom.modernizr.js"></script>
+<link rel="stylesheet" type="text/css" href="../Sweet Alerts/sweetalert.css">
+<script src="../Sweet Alerts/sweetalert.min.js"></script>
+<script src="../Tourism Template/js/jquery.min.js"></script>
 <script>
 Modernizr.load({
     // test if browser understands media queries
@@ -28,20 +29,52 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
+<script type="text/javascript">
+ function getPackageCatgry(type)
+ {
+ if(window.XMLHttpRequest)
+ {
+  http=new XMLHttpRequest();
+  }
+  else
+  {
+  http=new ActiveXobject("microsoft.XMLHTTP");
+  }
+  http.open("GET","GetCategory.php?type="+type,true);
+  http.send();
+  http.onreadystatechange=function()
+  {
+  if(http.readyState==4&&http.status==200)
+  {
+   document.getElementById("txtcat").innerHTML=http.responseText;
+  }
+  }
+ }
+</script>
 
+<script type="text/javascript">
+ $(document).ready(function(){
+ $("#add").click(function(){
+ var con="<tr><td ><input type='text' name='txtplace[]' placeholder='Place:' style='width:450px;' /></td></tr>";
+$("#newtb").append(con);
+
+ });
+ });
+</script>
 
 <!--[if lt IE 9]>
-<link rel="stylesheet" href="../Tourism Template/css/ie-fixes.css">
+<link rel="stylesheet" href="../Tourism Template/css//ie-fixes.css">
 <![endif]-->
 </head>
 <body>
 <div class="header">
   <div class="row">
     <div class="columns large-12">
-      <div class="row header-inner" style="width:1200px">
+      <div class="row header-inner">
         <?php
 		 include("menu_header.php");
 		?>
+
       </div>
     </div>
   </div>
@@ -72,47 +105,36 @@ Modernizr.load({
   <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-7 content">
-        <h3 class="page-title"><u>Akshaya - Gateway of Opportunities</u></h3>
-        <div>
-          <h2 align="justify" class="sub-title">Akshaya, an innovative project implemented in the State of Kerala aimed at bridging the digital divide, addresses the issues of ICT access, basic skill sets and availability of relevant content.</h2>
+        <h1 class="page-title">Package Details</h1>
+<br />
+            <form id="contact-form" enctype="multipart/form-data" method="post" action="">
+			<table style="width:500px;">
+						<tr>
+			<td >
+              Name
+			  <td >
+              <input type="text" name="txtname" id="txtname" placeholder="Name:" required ></td>
+			            
+			  </tr>
+			  
+			
+			  </table>
+            </form>
+<br /><br />
+<br />
+<br />
+<br />
+
+ 
+		  </div>          
+		   <div class="columns large-4">
+            <div id="map_canvas"></div>
+            
+          </div>
         </div>
-		<h6>AKSHAYA CENTERS</h6>
-        <ul class="row">
-		<?php
-		include("../connection.php");
-		$q=mysql_query("select * from vle where status='Approve' limit 3");
-		while($a=mysql_fetch_array($q))
-		{
-		?>
-		
-          <li class="columns large-4 about-list">
-            <div class="img-wrapper">
-              <p><img src="../akshaya/Photos/<?php echo $a['photo'];?>" alt="" class="th about-image" style="height:200px; width:170px"> 
-            </div>
-            </p>
-            <h3 class="employer-name"><?php echo $a['name'];?></h3>
-            <p><?php echo $a['center_location'];?> <br>
-			<?php echo $a['panchayath'];?><br><?php echo $a['district'];?> ( <?php echo $a['phone'];?>)<br>
-			<img src="../Tourism Template/images/email.png"><?php echo $a['email'];?><br>
-			<img src="../Tourism Template/images/phone.png"><?php echo $a['mobile'];?><br>
-			</p>
-          </li>
-        <?php
-		}
-		?>
-        </ul>
-		<a href="vle_approved.php" style="float:right" class="a">Read More</a>
       </div>
-      <div class="columns sidebar large-4 large-offset-1">
-        <h1 class="page-title"> Other Operations </h1>
-        <ul >
-          <li> <a href="vle_approved.php"  style="font-size:18px">View VLE details</a> </li>
-          <li> <a href="Bus_details.php" style="font-size:18px">Black List</a> </li>
-          <li> <a href="" style="font-size:18px">Message</a> </li>
-          <li> <a href="Enquiry.php" style="font-size:18px">Online Enquires</a> </li>
-         
-           <li><a href="../Logout.php" style="font-size:18px" >Logout</a></li>
-        </ul>
+      <div class="row collapse">
+        <div class="columns large-12"> </div>
       </div>
     </div>
   </div>
@@ -121,12 +143,13 @@ Modernizr.load({
 <div class="credit-row">
   <div class="row">
     <div class="columns large-11 credit"> &copy; 2045 All rights reserved by <a href="#">Calisto.</a> Design by: <a href="http://topwebsitetemplates.org">topwebsitetemplates.org</a></div>
-    <div class="columns large-1"> <img src="../Tourism Template/images/toparrow.png" alt="" class="scrollToTop"> </div>
+    <div class="columns large-1"> <img src="Tourism Template/images/toparrow.png" alt="" class="scrollToTop"> </div>
   </div>
 </div>
 <script src="../Tourism Template/js/jquery.min.js"></script>
 <script src="../Tourism Template/js/hoverIntent.js"></script>
 <script src="../Tourism Template/js/superfish.js"></script>
+<script src="../Tourism Template/Tourism Template/js/google-maps.js"></script>
 <script>
 Modernizr.load({
     test: Modernizr.placeholder,
@@ -153,15 +176,51 @@ $(document).ready(function () {
     });
 });
 </script>
+
+<?php
+
+if(isset($_POST['btn']))
+ {
+  include "../connection.php";
+ $place=implode(",",$_POST['txtplace']);
+  mysql_query("insert into package_tb values(0,'".$_SESSION['id']."','".$_POST['type']."','".$_POST['txtcat']."','$place','".$_POST['txtdes']."','".$_POST['txtdays']."','".$_POST['txtamount']."','pending')")or die(mysql_error());
+  if(mysql_affected_rows($con)>0)
+  {
+  $qq=mysql_query("select max(id) from package_tb");
+  $max=mysql_fetch_array($qq);
+	for($i=0; $i<count($_FILES['txtfile']['name']); $i++)
+	 {
+	  mysql_query("insert into place_images values(0,'".$max[0]."','".$_FILES['txtfile']['name'][$i]."')")or die(mysql_error());
+	 move_uploaded_file($_FILES['txtfile']['tmp_name'][$i],"Place/".$_FILES['txtfile']['name'][$i]);
+	 }
+  ?>
+  <script type="text/javascript">
+   swal({
+  title: "Success",
+  text: "Package Category  Added Successfully",
+  type: "success"
+  },
+  function(){
+  window.location.href='Add_Package.php';
+  });
+  </script>
+  <?php
+  }
+ 
+ }
+ 
+?>
 </body>
 </html>
 <?php
+
+
 }
 else
 {
 ?>
 <script type="text/javascript">
-window.location.href="../SignIn.php";
+window.location.href='../index.php';
 </script>
 <?php
 }
