@@ -159,7 +159,9 @@ if(isset($_POST['btn']))
  $q=mysql_query("select * from association where username='".$_POST['txtuname']."' and password='".$_POST['txtpswd']."'");
  if($a=mysql_fetch_array($q))
  {
-  $_SESSION['username']=$a[0];
+ $_SESSION['id']=$a[0];
+ $_SESSION['username']=$a['username'];
+  
  ?>
  <script type="text/javascript">window.location.href="Admin/home.php";</script>
  <?php

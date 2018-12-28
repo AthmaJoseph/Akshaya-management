@@ -1,6 +1,6 @@
 <?php
  session_start();
- if(isset($_SESSION['username']))
+ if(isset($_SESSION['id']))
  {
  ?>
 <!DOCTYPE html>
@@ -141,13 +141,13 @@ Modernizr.load({
 <![endif]-->
 </head>
 <body>
-<div class="header">
+<div class="header"><?php
+		 include("menu_header.php");
+		?>
   <div class="row">
     <div class="columns large-12">
       <div class="row header-inner">
-        <?php
-		 include("menu_header.php");
-		?>
+        
 
       </div>
     </div>
@@ -269,12 +269,12 @@ if(isset($_POST['btn']))
  {
   include "../connection.php";
 
- $q=mysql_query("select * from association where username='".$_SESSION['username']."' and password='".$_POST['txtcpswd']."'");
+ $q=mysql_query("select * from  association where id='".$_SESSION['id']."' and password='".$_POST['txtcpswd']."'");
  if($a=mysql_fetch_array($q))
  {
  if($_POST['txtnpswd']==$_POST['txtvpswd'])
  {
-  mysql_query("update association set password='".$_POST['txtnpswd']."' where username='".$_SESSION['username']."'");
+  mysql_query("update  association set password='".$_POST['txtnpswd']."' where id='".$_SESSION['id']."'");
   if(mysql_affected_rows($con)>0)
   {
   ?>
