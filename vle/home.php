@@ -95,7 +95,7 @@ Modernizr.load({
 	<div class="columns sidebar large-4 large-offset-1">
         <h1 class="page-title"> Other Operations </h1>
         <ul >
-		  <li> <a href="reg.php"  style="font-size:18px">New Registration</a> </li>
+		  <li> <a href="Add_staff.php"  style="font-size:18px">New Registration</a> </li>
           <li> <a href="message.php"  style="font-size:18px">Message</a> </li>
           <li> <a href="Passenger_details.php" style="font-size:18px">Black List</a> </li>
 		   <li><a href="Editprofile.php"  style="font-size:18px">Edit Profile</a></li>

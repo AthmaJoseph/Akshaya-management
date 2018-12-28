@@ -109,6 +109,7 @@ Modernizr.load({
           <li> <a href="vle_approved.php"  style="font-size:18px">View VLE details</a> </li>
           <li> <a href="Bus_details.php" style="font-size:18px">Black List</a> </li>
           <li> <a href="" style="font-size:18px">Message</a> </li>
+		  <li> <a href="Changepassword.php" style="font-size:18px">Change Password</a> </li>
           <li> <a href="Enquiry.php" style="font-size:18px">Online Enquires</a> </li>
          
            <li><a href="../Logout.php" style="font-size:18px" >Logout</a></li>

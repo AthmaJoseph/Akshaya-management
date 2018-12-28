@@ -20,7 +20,7 @@
 <script src="../Tourism Template/js/vendor/custom.modernizr.js"></script>
 <link rel="stylesheet" type="text/css" href="../Sweet Alerts/sweetalert.css">
 <script src="../Sweet Alerts/sweetalert.min.js"></script>
-<script src="../Tourism Template/js/jquery.min.js"></script>
+
 <script>
 Modernizr.load({
     // test if browser understands media queries
@@ -29,8 +29,17 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
+
+
 <script type="text/javascript">
- function getPackageCatgry(type)
+ function prev(event)
+ {
+  var src=URL.createObjectURL(event.target.files[0]);
+   document.getElementById("pre").innerHTML="<img src="+src+" height=100 width=100>";
+ }
+</script>
+<script type="text/javascript">
+ function checkUsername(uname)
  {
  if(window.XMLHttpRequest)
  {
@@ -40,27 +49,26 @@ Modernizr.load({
   {
   http=new ActiveXobject("microsoft.XMLHTTP");
   }
-  http.open("GET","GetCategory.php?type="+type,true);
+  http.open("GET","GetUsername_edit.php?uname="+uname,true);
   http.send();
   http.onreadystatechange=function()
   {
   if(http.readyState==4&&http.status==200)
   {
-   document.getElementById("txtcat").innerHTML=http.responseText;
+  if(http.responseText=="This Username Already Exists")
+  {
+   document.getElementById("txtu").innerHTML="<font color='red'>"+http.responseText+"</font>";
+   document.getElementById("btn").disabled="true";
+   }
+   else
+   {
+   document.getElementById("txtu").innerHTML="";
+   document.getElementById("btn").disabled="";
+   }
   }
   }
  }
-</script>
-
-<script type="text/javascript">
- $(document).ready(function(){
- $("#add").click(function(){
- var con="<tr><td ><input type='text' name='txtplace[]' placeholder='Place:' style='width:450px;' /></td></tr>";
-$("#newtb").append(con);
-
- });
- });
-</script>
+ </script>
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="../Tourism Template/css//ie-fixes.css">
@@ -105,27 +113,46 @@ $("#newtb").append(con);
   <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-7 content">
-        <h1 class="page-title">Package Details</h1>
+        <h1 class="page-title">Edit Profile</h1>
 <br />
-            <form id="contact-form" enctype="multipart/form-data" method="post" action="">
-			<table style="width:500px;">
-						<tr>
-			<td >
-              Name
-			  <td >
-              <input type="text" name="txtname" id="txtname" placeholder="Name:" required ></td>
-			            
+          <?php
+		   include("../connection.php");
+		   $q=mysql_query("select * from vle where id='".$_SESSION['id']."'");
+		   if($a=mysql_fetch_array($q))
+		   {
+		   ?>
+            <form id="contact-form" method="post" action="" enctype="multipart/form-data">
+			<table style="width:500px">
+			<caption><img src="photo/Photos/<?php echo $a['photo'];?>" height="100" width="100" /></caption>
+			<tr>
+			<td>Name</td>
+			<td><input type="text" value="<?php echo $a['name'];?>" name="txtname"  /></td></tr>
+			<tr>  <td>Center Code</td>
+			<td> <input type="text" name="txtcentercode" value="<?php echo $a['centercode'];?>" required ></td>
 			  </tr>
-			  
+			  			<tr>
+			<td >Email</td>
+			<td> <input type="email" name="txtemail" value="<?php echo $a['email'];?>" required></td>
 			
+			</tr><tr><td>Photo</td><td>          <input type="file" name="txtfile"  onChange="prev(event)"> <div id="pre"></div></td></tr>
+			<tr>
+			  <td>Phone Number</td>
+			<td> <input type="text" name="txtphone" value="<?php echo $a['phone'];?>" required  /></td>
+			<tr><td>Mobile Number</td>
+			<td> <input type="text" name="txtmobile" value="<?php echo $a['mobile'];?>" required ></td>
+			</tr>
+			<tr>
+			  <td></td>
+			
+
+			  <tr>
+			  <td colspan="4" align="center"><input type="submit" class="button" name="btn1" id="btn" value="Edit" /></td>
+			  </tr>
 			  </table>
             </form>
-<br /><br />
-<br />
-<br />
-<br />
-
- 
+		   <?php
+		   }
+		  ?> 
 		  </div>          
 		   <div class="columns large-4">
             <div id="map_canvas"></div>
@@ -176,43 +203,40 @@ $(document).ready(function () {
     });
 });
 </script>
-
-<?php
-
-if(isset($_POST['btn']))
- {
-  include "../connection.php";
- $place=implode(",",$_POST['txtplace']);
-  mysql_query("insert into package_tb values(0,'".$_SESSION['id']."','".$_POST['type']."','".$_POST['txtcat']."','$place','".$_POST['txtdes']."','".$_POST['txtdays']."','".$_POST['txtamount']."','pending')")or die(mysql_error());
-  if(mysql_affected_rows($con)>0)
-  {
-  $qq=mysql_query("select max(id) from package_tb");
-  $max=mysql_fetch_array($qq);
-	for($i=0; $i<count($_FILES['txtfile']['name']); $i++)
-	 {
-	  mysql_query("insert into place_images values(0,'".$max[0]."','".$_FILES['txtfile']['name'][$i]."')")or die(mysql_error());
-	 move_uploaded_file($_FILES['txtfile']['tmp_name'][$i],"Place/".$_FILES['txtfile']['name'][$i]);
-	 }
-  ?>
-  <script type="text/javascript">
-   swal({
-  title: "Success",
-  text: "Package Category  Added Successfully",
-  type: "success"
-  },
-  function(){
-  window.location.href='Add_Package.php';
-  });
-  </script>
-  <?php
-  }
- 
- }
- 
-?>
 </body>
 </html>
 <?php
+
+
+
+
+if(isset($_POST['btn1']))
+{
+	if(is_uploaded_file($_FILES['txtfile']['tmp_name']))
+	{
+		mysql_query("update vle set name='".$_POST['txtname']."',centercode='".$_POST['txtcentercode']."',email='".$_POST['txtemail']."',phone='".$_POST['txtphone']."',mobile='".$_POST['txtmobile']."',photo='".$_FILES['txtfile']['name']."' where id='".$_SESSION['id']."'");
+		  move_uploaded_file($_FILES['txtfile']['tmp_name'],"photo/Photos/".$_FILES['txtfile']['name']);
+											
+	}
+	else
+	{
+		mysql_query("update vle set name='".$_POST['txtname']."',centercode='".$_POST['txtcentercode']."',email='".$_POST['txtemail']."',phone='".$_POST['txtphone']."',mobile='".$_POST['txtmobile']."' where id='".$_SESSION['id']."'");
+	}
+	$_SESSION['centercode']=$_POST['txtcentercode'];
+  ?>
+ <script type="text/javascript">
+ swal({
+  title: "Success",
+  text: "Your Profile Updated Successfully",
+  type: "success"
+  },
+  function(){
+  window.location.href='Editprofile.php';
+  });
+ </script>
+  <?php
+
+}
 
 
 }
