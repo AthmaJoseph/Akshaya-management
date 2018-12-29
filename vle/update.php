@@ -1,6 +1,6 @@
 <?php
  session_start();
- if(isset($_SESSION['username']))
+ if(isset($_SESSION['id']))
  {
  ?>
 <!DOCTYPE html>
@@ -9,16 +9,14 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<meta charset="utf-8">
-<title>Akshaya</title>
+<title>akshaya</title>
 <link rel="icon" href="../Tourism Template/images/site_icon.png">
-<link rel="stylesheet" href="../Tourism Template/css/foundation.min.css">
-<link rel="stylesheet" href="../Tourism Template/css/superfish.css">
-<link rel="stylesheet" href="../Tourism Template/css/stylesheet.css">
-<link rel="stylesheet" href="../Tourism Template/js/colorbox/colorbox.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="../Tourism Template/css//foundation.min.css">
+<link rel="stylesheet" href="../Tourism Template/css//superfish.css">
+<link rel="stylesheet" href="../Tourism Template/css//stylesheet.css">
 <link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
-<link  href="../Tourism Template/css/comment.css" rel="stylesheet" type="text/css">
 <script src="../Tourism Template/js/vendor/custom.modernizr.js"></script>
 <script>
 Modernizr.load({
@@ -28,10 +26,8 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
-
-
 <!--[if lt IE 9]>
-<link rel="stylesheet" href="../Tourism Template/css/ie-fixes.css">
+<link rel="stylesheet" href="../Tourism Template/css//ie-fixes.css">
 <![endif]-->
 </head>
 <body>
@@ -42,6 +38,7 @@ Modernizr.load({
         <?php
 		 include("menu_header.php");
 		?>
+
       </div>
     </div>
   </div>
@@ -72,48 +69,62 @@ Modernizr.load({
   <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-7 content">
-        <h3 class="page-title"><u>Akshaya - Gateway of Opportunities</u></h3>
-        <div>
-          <h2 align="justify" class="sub-title">Akshaya, an innovative project implemented in the State of Kerala aimed at bridging the digital divide, addresses the issues of ICT access, basic skill sets and availability of relevant content.</h2>
+  <h1 class="page-title">Staff list</h1>
+
+          <?php
+		   include("../connection.php");
+		   $q=mysql_query("select * from staff_reg where centercode='".$_SESSION['centercode']."'");
+		   if(mysql_num_rows($q)>0)
+		   {
+		   ?>
+		    
+    <table cellpadding="0" cellspacing="0" border="1" id="table">
+      <thead>
+        <tr>
+		   <th>Name</th>
+		   <th>Photo</th>
+		   <th>Edit</th>
+   		    </tr>
+      </thead>
+      <tbody>
+		   <?php
+		    while($a=mysql_fetch_array($q))
+			{
+			?>
+			<tr>
+			<td><?php echo $a['firstname'];?></td>
+			<td><img src="photo/Photos/<?php echo $a['photo'];?>" height="100" width="100"></td>
+						<td><a href="update_staff.php?id=<?php echo $a[0];?>" class="button" style="text-decoration:none; color:white">Update</a></td>
+
+		    </tr>
+			<?php
+			}
+		   ?>
+		</tbody>
+    </table>
+    
+		   <?php
+		   }
+		   else
+		   {
+		   ?>
+		   <div class="alert">
+  <span class="closebtn" onClick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Info!</strong> No Staff.
+</div>
+		   <?php
+		   }
+		  ?> 
+		  </div>   
+          <br /><br /><br /><br /><br />            
+          <div class="columns large-4">
+            <div id="map_canvas"></div>
+            
+          </div>
         </div>
-		<h6>AKSHAYA CENTERS(VLE)</h6>
-        <ul class="row">
-		<?php
-		include("../connection.php");
-		$q=mysql_query("select * from vle where status='Approve' limit 3");
-		while($a=mysql_fetch_array($q))
-		{
-		?>
-		
-          <li class="columns large-4 about-list">
-            <div class="img-wrapper">
-              <p><img src="../akshaya/Photos/<?php echo $a['photo'];?>" alt="" class="th about-image" style="height:200px; width:170px"> 
-            </div>
-            </p>
-            <h3 class="employer-name"><?php echo $a['name'];?></h3>
-            <p><?php echo $a['center_location'];?> <br>
-			<?php echo $a['panchayath'];?><br><?php echo $a['district'];?> ( <?php echo $a['phone'];?>)<br>
-			<img src="../Tourism Template/images/email.png"><?php echo $a['email'];?><br>
-			<img src="../Tourism Template/images/phone.png"><?php echo $a['mobile'];?><br>
-			</p>
-          </li>
-        <?php
-		}
-		?>
-        </ul>
-		<a href="vle_approved.php" style="float:right" class="a">Read More</a>
       </div>
-      <div class="columns sidebar large-4 large-offset-1">
-        <h1 class="page-title"> Other Operations </h1>
-        <ul >
-          <li> <a href="vle_approved.php"  style="font-size:18px">View VLE details</a> </li>
-          <li> <a href="Bus_details.php" style="font-size:18px">Black List</a> </li>
-          <li> <a href="" style="font-size:18px">Message</a> </li>
-		  <li> <a href="Changepassword.php" style="font-size:18px">Change Password</a> </li>
-          <li> <a href="Enquiry.php" style="font-size:18px">Online Enquires</a> </li>
-         
-           <li><a href="../Logout.php" style="font-size:18px" >Logout</a></li>
-        </ul>
+      <div class="row collapse">
+        <div class="columns large-12"> </div>
       </div>
     </div>
   </div>
@@ -128,6 +139,7 @@ Modernizr.load({
 <script src="../Tourism Template/js/jquery.min.js"></script>
 <script src="../Tourism Template/js/hoverIntent.js"></script>
 <script src="../Tourism Template/js/superfish.js"></script>
+<script src="../Tourism Template/Tourism Template/js/google-maps.js"></script>
 <script>
 Modernizr.load({
     test: Modernizr.placeholder,
@@ -161,7 +173,7 @@ $(document).ready(function () {
 else
 {
 ?>
-<script type="text/javascript">
+<script type="text/ecmascript">
 window.location.href="../SignIn.php";
 </script>
 <?php

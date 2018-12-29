@@ -162,6 +162,7 @@ if(isset($_POST['btn']))
  {
  $_SESSION['id']=$a[0];
   $_SESSION['centercode']=$a['centercode'];
+  
  ?>
  <script type="text/javascript">window.location.href="vle/home.php";</script>
  <?php

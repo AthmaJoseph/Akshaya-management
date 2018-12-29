@@ -12,9 +12,9 @@
                 <li class="active"><a href="home.php" class="head_a">Home</a></li>
                 <li class="has-dropdown" ><a href="" class="head_a">Employee Details</a>
                   <ul class="dropdown">
-                	<li><a href="Add_Package.php" class="head_a">View Details</a></li>
-                	<li><a href="View_Package.php" class="head_a">Update Details</a></li>
-					<li><a href="View_Package.php" class="head_a">Delete Staff</a></li>
+                	<li><a href="staff_approved.php" class="head_a">View Details</a></li>
+                	<li><a href="update.php" class="head_a">Update Details</a></li>
+					<li><a href="delete.php" class="head_a">Delete Staff</a></li>
 				  </ul>
 				</li>
 				 <li class="has-dropdown" ><a href="" class="head_a">Black list</a>
