@@ -11,7 +11,6 @@
 <link rel="stylesheet"  href="Tourism Template/css/superfish.css">
 <link rel="stylesheet"  href="Tourism Template/css/stylesheet.css">
 <link rel="stylesheet" type="text/css" href="Sweet Alerts/sweetalert.css">
-<script src="reg2.js"></script>
 <script src="Sweet Alerts/sweetalert.min.js"></script>
 <script src="Tourism Template/js/vendor/custom.modernizr.js"></script>
 <script>
@@ -23,7 +22,101 @@ Modernizr.load({
 });
 </script>
 
+ <script type="application/javascript">
+var alphaExp = /^[a-zA-Z]+$/; //Variable to validate only alphabets
+var alphaspaceExp = /^[a-zA-Z\s]+$/; //Variable to validate only alphabets and space
+var numericExpression = /^[0-9]+$/; //Variable to validate only numbers
+var alphanumericExp = /^[0-9a-zA-Z]+$/; //Variable to validate numbers and alphabets
+var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/; //Variable to validate Email ID 
 
+function validateform()
+{
+	if(document.contact-form.txtcentercode.value == "")
+	{
+		alert("Center Code should not be empty..");
+		document.contact-form.txtcentercode.focus();
+		return false;
+	}
+else if(!document.contact-form.txtlocation.value.match(alphaspaceExp))
+	{
+		alert("Location not valid..");
+		document.contact-form.txtlocation.focus();
+		return false;
+	}
+	else if(document.contact-form.txtlandmark.value == "")
+	{
+		alert("Landmark should not be empty..");
+		document.contact-form.txtlandmark.focus();
+		return false;
+	}
+	else if(document.contact-form.txtpanchayath.value == "")
+	{
+		alert("Panchayath should not be empty..");
+		document.contact-form.txtpanchayath.focus();
+		return false;
+	}
+	else if(document.contact-form.txtblock.value == "")
+	{
+		alert("Block should not be empty..");
+		document.contact-form.txtblock.focus();
+		return false;
+	}
+	else if(document.contact-form.txtmb.value == "")
+	{
+		alert("Mobile number should not be empty..");
+		document.contact-form.txtmb.focus();
+		return false;
+	}
+	else if(!document.contact-form.txtmb.value.match(numericExpression))
+	{
+		alert("Mobile number not valid..");
+		document.contact-form.txtmb.focus();
+		return false;
+	}
+else if(document.contact-form.txtphone.value == "")
+	{
+		alert("Phone number should not be empty..");
+		document.contact-form.txtphone.focus();
+		return false;
+	}
+	else if(!document.contact-form.txtphone.value.match(numericExpression))
+	{
+		alert("Phone number not valid..");
+		document.contact-form.txtphone.focus();
+		return false;
+	}
+	else if(document.contact-form.txtdistrict.value == "")
+	{
+		alert("District should not be empty..");
+		document.contact-form.txtdistrict.focus();
+		return false;
+	}
+	else if(!document.contact-form.txtdistrict.value.match(alphaspaceExp))
+	{
+		alert("District not valid..");
+		document.contact-form.txtdistrict.focus();
+		return false;
+	}
+	
+	else if(document.contact-form.txtpswd.value == "")
+	{
+		alert("Password should not be empty..");
+		document.contact-form.txtpswd.focus();
+		return false;
+	}
+	else if(document.contact-form.txtpswd.value.length < 8)
+	{
+		alert("Password length should be more than 8 characters...");
+		document.contact-form.txtpswd.focus();
+		return false;
+	}
+	
+	else
+	{
+		return true;
+	}
+}
+</script>
 
 <script type="text/javascript">
  function prev(event)
@@ -250,98 +343,3 @@ $(document).ready(function () {
  }
  
  ?>
- <script type="application/javascript">
-var alphaExp = /^[a-zA-Z]+$/; //Variable to validate only alphabets
-var alphaspaceExp = /^[a-zA-Z\s]+$/; //Variable to validate only alphabets and space
-var numericExpression = /^[0-9]+$/; //Variable to validate only numbers
-var alphanumericExp = /^[0-9a-zA-Z]+$/; //Variable to validate numbers and alphabets
-var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/; //Variable to validate Email ID 
-
-function validateform()
-{
-	if(document.contact-form.txtcentercode.value == "")
-	{
-		alert("Center Code should not be empty..");
-		document.contact-form.txtcentercode.focus();
-		return false;
-	}
-else if(!document.contact-form.txtlocation.value.match(alphaspaceExp))
-	{
-		alert("Location not valid..");
-		document.contact-form.txtlocation.focus();
-		return false;
-	}
-	else if(document.contact-form.txtlandmark.value == "")
-	{
-		alert("Landmark should not be empty..");
-		document.contact-form.txtlandmark.focus();
-		return false;
-	}
-	else if(document.contact-form.txtpanchayath.value == "")
-	{
-		alert("Panchayath should not be empty..");
-		document.contact-form.txtpanchayath.focus();
-		return false;
-	}
-	else if(document.contact-form.txtblock.value == "")
-	{
-		alert("Block should not be empty..");
-		document.contact-form.txtblock.focus();
-		return false;
-	}
-	else if(document.contact-form.txtmb.value == "")
-	{
-		alert("Mobile number should not be empty..");
-		document.contact-form.txtmb.focus();
-		return false;
-	}
-	else if(!document.contact-form.txtmb.value.match(numericExpression))
-	{
-		alert("Mobile number not valid..");
-		document.contact-form.txtmb.focus();
-		return false;
-	}
-else if(document.contact-form.txtphone.value == "")
-	{
-		alert("Phone number should not be empty..");
-		document.contact-form.txtphone.focus();
-		return false;
-	}
-	else if(!document.contact-form.txtphone.value.match(numericExpression))
-	{
-		alert("Phone number not valid..");
-		document.contact-form.txtphone.focus();
-		return false;
-	}
-	else if(document.contact-form.txtdistrict.value == "")
-	{
-		alert("District should not be empty..");
-		document.contact-form.txtdistrict.focus();
-		return false;
-	}
-	else if(!document.contact-form.txtdistrict.value.match(alphaspaceExp))
-	{
-		alert("District not valid..");
-		document.contact-form.txtdistrict.focus();
-		return false;
-	}
-	
-	else if(document.contact-form.txtpswd.value == "")
-	{
-		alert("Password should not be empty..");
-		document.contact-form.txtpswd.focus();
-		return false;
-	}
-	else if(document.contact-form.txtpswd.value.length < 8)
-	{
-		alert("Password length should be more than 8 characters...");
-		document.contact-form.txtpswd.focus();
-		return false;
-	}
-	
-	else
-	{
-		return true;
-	}
-}
-</script>

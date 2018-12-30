@@ -116,7 +116,6 @@ Modernizr.load({
 
 <div class="credit-row">
   <div class="row">
-    <div class="columns large-11 credit"> &copy; 2045 All rights reserved by <a href="#">Calisto.</a> Design by: <a href="http://topwebsitetemplates.org">topwebsitetemplates.org</a></div>
     <div class="columns large-1"> <img src="Tourism Template/images/toparrow.png" alt="" class="scrollToTop"> </div>
   </div>
 </div>

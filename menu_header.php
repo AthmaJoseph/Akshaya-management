@@ -12,7 +12,20 @@
               <ul class="sf-menu large-12">
                 <li class="active"><a href="index.php" class="head_a">Home</a></li>
                 <li><a href="gallery.php" class="head_a">Gallery</a></li>
-                <li><a href="contact.php" class="head_a">Contact Us</a></li>
+				<li class="has-dropdown" ><a href="#" class="head_a">Contact</a>
+                  <ul class="dropdown">
+				   <li><a href="contact.php">Queries</a></li>
+                    <li><a href="contactmail.php">Mail</a></li>
+                  </ul>
+                </li>
+				<li class="has-dropdown" ><a href="#" class="head_a">Centers</a>
+                  <ul class="dropdown">
+				   <li><a href="list.php">View</a></li>
+                    <li><a href="feedback.php">Message</a></li>
+                    <li><a href="#">Services</a></li>
+                  </ul>
+                </li>
+				
                 <li class="has-dropdown" ><a href="#" class="head_a">Sign In</a>
                   <ul class="dropdown">
 				   <li><a href="SignIn.php">Administrator</a></li>
