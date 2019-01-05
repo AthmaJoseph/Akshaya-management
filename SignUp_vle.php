@@ -71,9 +71,13 @@ Modernizr.load({
  {
  font-family:Verdana;
  }
+body {
+	background-image: url();
+	background-color: #CCCCCC;
+}
 </style>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
 <div class="header">
   <div class="row">

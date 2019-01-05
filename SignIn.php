@@ -33,9 +33,12 @@ Modernizr.load({
  {
  font-family:Verdana;
  }
+body {
+	background-image: url(Slider%20Images/admin-login.jpg);
+}
 </style>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
 <div class="header">
   <div class="row">

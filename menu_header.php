@@ -16,13 +16,15 @@
                   <ul class="dropdown">
 				   <li><a href="contact.php">Queries</a></li>
                     <li><a href="contactmail.php">Mail</a></li>
+					                    <li><a href="chat.php">Live Chat</a></li>
+
                   </ul>
                 </li>
 				<li class="has-dropdown" ><a href="#" class="head_a">Centers</a>
                   <ul class="dropdown">
 				   <li><a href="list.php">View</a></li>
                     <li><a href="feedback.php">Message</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="services.php">Services</a></li>
                   </ul>
                 </li>
 				

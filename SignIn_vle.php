@@ -33,14 +33,21 @@ Modernizr.load({
  {
  font-family:Verdana;
  }
+body {
+	background-image: url(Slider%20Images/admin-login.jpg);
+	background-color: #FFFFFF;
+}
 </style>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
+
+
 <div class="header">
   <div class="row">
     <div class="columns large-12">
       <div class="row header-inner">
+	  
     <?php
 	include"menu_header.php";
 	?>
@@ -153,6 +160,7 @@ $(document).ready(function () {
 </html>
 
 <?php
+
 if(isset($_POST['btn']))
 {
  include("connection.php");

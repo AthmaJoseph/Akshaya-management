@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,6 +10,12 @@
 <!--
 .style1 {color: #0000FF}
 .style2 {color: #B8B8B8}
+body {
+	background-image: url(Slider%20Images/as.jpg);
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 200px;
+}
 -->
 </style>
 </head>
